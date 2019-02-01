@@ -1,0 +1,81 @@
+Interface Description||RxConnect will expose the service to find a patient by phone number|||||
+Type Of Service||WS-REST|||||
+Data Structure||JSON|||||
+ServiceName||retailPharmacyPatientRESTService|||||
+Operation Name||getPatientByPhone|||||
+Inbound/Outbound||Inbound|||||
+Provider||RxConnect via ESL|||||
+Consumer(s)||Nuance via ESL|||||
+Flow||Nuance => ESL => RxConnect|||||
+Integration Technology||HTTPS, TLS 1.2|||||
+|||||||
+|||||||
+Header Attributes|||||||
+Attribute Name|DataType|Mandatory/Optional|Description||||
+appMsgId|String|M|Unique Transaction ID||||
+channel|String|M|Communication Channel||||
+appName|String|M|Application Name||||
+|||||||
+|||||||
+Request Attributes|||||||
+Release Number|Project Name/ CR#/ Defect# |Attribute Name|Nested Attribute|DataType|Mandatory/Optional|Domain Values|Business Need / Description
+R30.1|ITPR029635|Phone Number||String|M||10 digit phone number
+R30.1|ITPR029635|Facility ID||String|M||5 digit store number
+|||||||
+|||||||
+Response Attributes|||||||
+Release Number|Project Name/ CR#/ Defect# |Attribute Name|Nested Attribute|DataType|Mandatory/Optional|Domain Values|Business Need / Description
+R30.1|ITPR029635|Transaction ID||String|M||Unique Transaction ID
+R30.1|ITPR029635|Store Number||String|M||5 digit store number
+R30.1|ITPR029635|Phone Number||String|M||10 digit phone number
+R30.1|ITPR029635|Patient Found||String|M|"Y
+N"|Yes or No
+R30.1|ITPR029635|Patient Not Found Reason Code||Number|O|"1
+2
+3
+4"|"When Patient Not Found
+1 = Patient with the Phone Number does not exist in the RxC system
+2 = Patient Found but did not have prescription-fill activity
+3 = Multiple Patients with same date of birth
+4 = More than 20 patients found with the prescription-fill activity"
+|[BEGIN REPEATING GROUP - Patient Info] [min=0, max=20 groups]||||||
+R30.1|ITPR029635|Patient Info|Patient ID|String|O||Unique Patient ID assigned by RxC to the patient
+|||Patient First Name|String|O||PatientÕs First Name
+|||Patient DOB|String|O||PatientÕs Date of Birth in MM/DD/YYYY format
+|[END REPEATING GROUP - Patient Info ] [min=0, max=20 groups]||||||
+R30.1|ITPR029635|Response Description||String|M|"Failure
+Success"|"Code to indicate Success/Failure
+
+"
+R30.1|ITPR029635|Response Code||String|M|"00
+01
+02
+03
+04
+05
+99"|"Response Code Value
+00 = Success
+01 = Store Offline
+02 = Store Disabled for IVR
+03 = Invalid Transaction
+04 = Invalid Phone Number
+05 = Invalid Facility ID
+99 = RxC System Error"
+|||||||
+|||||||
+Sample JSON|||||||
+|||||||
+|||||||
+|||||||
+|||||||
+|||||||
+|||||||
+|||||||
+|||||||
+|||||||
+|||||||
+|||||||
+|||||||
+|||||||
+|||||||
+|||||||
