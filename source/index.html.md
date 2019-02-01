@@ -2,10 +2,8 @@
 title: API Reference
 
 language_tabs: # must be one of https://git.io/vQNgJ
-  - shell
-  - ruby
-  - python
-  - javascript
+  - java
+
 
 toc_footers:
   - <a href='#'>Sign Up for a Developer Key</a>
@@ -29,25 +27,9 @@ This example API documentation page was created with [Slate](https://github.com/
 
 > To authorize, use this code:
 
-```ruby
-require 'kittn'
 
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-```
 
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-```
-
-```shell
-# With shell, you can just pass the correct header with each request
-curl "api_endpoint_here"
-  -H "Authorization: meowmeowmeow"
-```
-
-```javascript
+```java
 const kittn = require('kittn');
 
 let api = kittn.authorize('meowmeowmeow');
@@ -69,51 +51,29 @@ You must replace <code>meowmeowmeow</code> with your personal API key.
 
 ## Get All Kittens
 
-```ruby
-require 'kittn'
+```java
+import com.rxconnect.PatientDetails;
 
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get
-```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-api.kittens.get()
-```
-
-```shell
-curl "http://example.com/api/kittens"
-  -H "Authorization: meowmeowmeow"
-```
-
-```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('meowmeowmeow');
-let kittens = api.kittens.get();
+Public Class runMyCode{
+  Public void main(Args[]){
+    PatientDetails patDetails = new PatientDetails();
+    patDetails.getPatientDetails();
+  }
+}
 ```
 
 > The above command returns JSON structured like this:
 
 ```json
-[
+
   {
     "id": 1,
-    "name": "Fluffums",
-    "breed": "calico",
-    "fluffiness": 6,
-    "cuteness": 7
-  },
-  {
-    "id": 2,
-    "name": "Max",
-    "breed": "unknown",
-    "fluffiness": 5,
-    "cuteness": 10
+    "fname": "Fluffums",
+    "lname": "calico",
+    "areTheySick": "Y",
+    "maintenanceMedication": "Y"
   }
-]
+
 ```
 
 This endpoint retrieves all kittens.
@@ -124,10 +84,10 @@ This endpoint retrieves all kittens.
 
 ### Query Parameters
 
-Parameter | Default | Description
---------- | ------- | -----------
-include_cats | false | If set to true, the result will also include cats.
-available | true | If set to false, the result will include kittens that have already been adopted.
+Parameter | Default | Required | Description
+--------- | ------- | -------- | -----------
+include_cats | false | Y | If set to true, the result will also include cats.
+available | true | Y | If set to false, the result will include kittens that have already been adopted.
 
 <aside class="success">
 Remember — a happy kitten is an authenticated kitten!
@@ -236,4 +196,3 @@ This endpoint deletes a specific kitten.
 Parameter | Description
 --------- | -----------
 ID | The ID of the kitten to delete
-
