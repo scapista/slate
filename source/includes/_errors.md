@@ -6,6 +6,7 @@ This error section is stored in a separate file in <code>includes/_errors.md</co
 
 The Kittn API uses the following error codes:
 
+>check check
 
 Error Code | Meaning
 ---------- | -------

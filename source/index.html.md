@@ -89,9 +89,13 @@ Parameter | Default | Required | Description
 include_cats | false | Y | If set to true, the result will also include cats.
 available | true | Y | If set to false, the result will include kittens that have already been adopted.
 
+<a href='#'>Release Level Documentation</a>
+
 <aside class="success">
 Remember — a happy kitten is an authenticated kitten!
 </aside>
+
+
 
 ## Get a Specific Kitten
 

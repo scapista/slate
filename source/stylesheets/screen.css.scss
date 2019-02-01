@@ -423,11 +423,17 @@ html, body {
     }
 
     tr:nth-child(odd)>td {
-      background-color: lighten($main-bg,4.2%);
+      background-color: lighten($main-bg,2.4%);
+      border-bottom: 1px solid #ccc;
+      border-right: 1px solid #ccc;
+      border-left: 1px solid #ccc;
     }
 
     tr:nth-child(even)>td {
-      background-color: lighten($main-bg,2.4%);
+      background-color: lighten($main-bg,10%);
+      border-bottom: 1px solid #ccc;
+      border-right: 1px solid #ccc;
+      border-left: 1px solid #ccc;
     }
   }
 
